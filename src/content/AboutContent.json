@@ -1,15 +1,15 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "About Us",
+  "text": "Welcome to our oversize overweight permitting company, where we specialize in providing efficient and reliable transportation solutions for the heavy haul industry. With years of experience and a dedicated team of experts, we are committed to ensuring the safe and legal transportation of heavy loads for our clients. Our focus on safety, reliability, and customer satisfaction sets us apart as a trusted partner in the industry.",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
+      "title": "Why Sid Permits?",
+      "content": "Fast turnaround, knowledgeable staff, they really know how to get things done quickly",
       "icon": "notes.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "Customer Satisfaction",
+      "content": "Fast and accurate service is what our customers have come to rely on.",
       "icon": "notes.svg"
     }
   ]
