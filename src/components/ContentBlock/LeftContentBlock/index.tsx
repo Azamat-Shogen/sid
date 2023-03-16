@@ -2,7 +2,9 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../../common/SvgIcon";
 import { ContentBlockProps } from "../types";
+import { Button } from "../../../common/Button";
 import { Fade } from "react-awesome-reveal";
+import { useState, useEffect } from "react";
 import {
   LeftContentSection,
   Content,
@@ -12,14 +14,24 @@ import {
   MinPara,
 } from "./styles";
 
+
+
+
 const LeftContentBlock = ({
   icon,
   title,
   content,
+  button,
   section,
   t,
   id,
 }: ContentBlockProps) => {
+
+
+  //TODO: ADD APPLICATION FORM HERE
+
+
+
   return (
     <LeftContentSection>
       <Fade direction="left">
@@ -31,6 +43,11 @@ const LeftContentBlock = ({
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
+              {button && (
+                <Button name="submit" onClick={() => {}}>
+                  {t(button)}
+                </Button>
+              )}
               <ServiceWrapper>
                 <Row justify="space-between">
                   {typeof section === "object" &&
