@@ -25,6 +25,9 @@ const RightBlock = ({
       behavior: "smooth",
     });
   };
+
+
+   console.log('button is: ', button)
   return (
     <RightBlockContainer>
       <Fade direction="right">
@@ -34,19 +37,24 @@ const RightBlock = ({
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               <ButtonWrapper>
+                
                 {typeof button === "object" &&
-                  button.map((item: any, id: number) => {
-                    return (
-                      <Button
-                        key={id}
-                        color={item.color}
-                        fixedWidth={true}
-                        onClick={() => scrollTo("about")}
-                      >
-                        {t(item.title)}
-                      </Button>
-                    );
-                  })}
+                  <Button color={button[0].color} fixedWidth onClick={() => scrollTo("about")}>
+                    {t(button[0].title)}
+                  </Button>
+                  // button.map((item: any, id: number) => {
+                  //   return (
+                  //     <Button
+                  //       key={id}
+                  //       color={item.color}
+                  //       fixedWidth={true}
+                  //       onClick={() => scrollTo("about")}
+                  //     >
+                  //       {t(item.title)}
+                  //     </Button>
+                  //   );
+                  // })
+                  }
               </ButtonWrapper>
             </ContentWrapper>
           </Col>

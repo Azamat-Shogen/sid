@@ -42,12 +42,13 @@ const Home = () => {
         title={MissionContent.title}
         content={MissionContent.text}
         icon="product-launch.svg"
-        id="mission"
+        id="services"
       />
       <ContentBlock
         type="left"
         title={ProductContent.title}
         content={ProductContent.text}
+        button={ProductContent.button}
         icon="waving.svg"
         id="product"
       />
