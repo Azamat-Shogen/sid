@@ -9,8 +9,10 @@ import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
 import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
+import { SvgIcon } from "../../common/SvgIcon";
 
-const Contact = ({ title, content, id, t }: ContactProps) => {
+
+const Contact = ({ title, content, id, t, icon }: ContactProps) => {
   const { values, errors, handleChange, handleSubmit } = useForm(
     validate
   ) as any;
@@ -27,9 +29,11 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
   return (
     <ContactContainer id={id}>
       <Row justify="space-between" align="middle">
+
         <Col lg={12} md={11} sm={24} xs={24}>
           <Slide direction="left">
             <Block title={title} content={content} />
+            <SvgIcon src={icon} width="100%" height="100%" />
           </Slide>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>

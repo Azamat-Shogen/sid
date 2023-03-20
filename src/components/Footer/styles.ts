@@ -91,7 +91,8 @@ export const FooterContainer = styled("div")`
   max-width: 510px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
+  justify-content: start;
   text-align: center;
   align-items: center;
   transition: all 0.1s ease-in-out;
@@ -109,9 +110,9 @@ export const FooterContainer = styled("div")`
   @media screen and (max-width: 769px) {
     width: auto;
 
-    a:not(:last-child) {
-      display: none;
-    }
+    // a:not(:last-child) {
+    //   display: none;
+    // }
   }
 
   div {
@@ -167,4 +168,40 @@ export const LanguageSwitchContainer = styled("div")`
   display: flex;
   justify-content: space-between;
   width: 85px;
+`;
+
+
+export const gray1 = "#383737";
+export const gray2 = "#565555";
+export const gray3 = "#857c81";
+export const gray4 = "#b9b9b9";
+export const gray5 = "#e0dddd";
+
+export const primary1 = "#6ca583";
+export const accent1 = "#9b8dab";
+
+const List = styled.ul`
+  list-style: none;
+  padding: 0px 20px;
+  background-color: #fff;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top: 3px solid ${accent1};
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
+`;
+
+const ListItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px;
+  border-top: 1px solid ${gray5};
+  :first-of-type {
+    border-top: none;
+  }
+`;
+
+const Title2 = styled.span`
+  font-size: 18px;
+  color: ${gray1};
+  margin-bottom: 5px;
 `;
