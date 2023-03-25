@@ -1,7 +1,8 @@
-import { Row, Col } from "antd";
+import { Row, Col, List } from "antd";
 import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
+import ContactContent from "../../content/ContactContent.json";
 
 import i18n from "i18next";
 import {
@@ -17,8 +18,10 @@ import {
   FooterContainer,
   Language,
   Label,
-  LanguageSwitch,
-  LanguageSwitchContainer,
+  ListItem,
+  Title2,
+  ItemSpan
+  
 } from "./styles";
 
 interface SocialLinkProps {
@@ -51,79 +54,24 @@ const Footer = ({ t }: any) => {
         <Container>
           <Row justify="space-between">
             <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              {/* <Large to="/">{t("Tell us everything")}</Large> */}
-              <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
-              </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
+              <Language>{t("Contact Us")}</Language>
+              <List>
+                <ListItem>Phone: <ItemSpan>{ContactContent.phone}</ItemSpan></ListItem>
+                <ListItem>Email: <ItemSpan>{ContactContent.email}</ItemSpan></ListItem>
+                <ListItem>Fax: <ItemSpan>{ContactContent.fax}</ItemSpan></ListItem>
+              </List>
+            
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Policy")}</Title>
-              <Large to="/" left="true">
-                {t("Application Security")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Software Principles")}
-              </Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Empty />
-              <Large left="true" to="/">
-                {t("Support Center")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Customer Support")}
-              </Large>
+              <Title>{t("Services")}</Title>
+              <List>
+                <ListItem>Oversize permits</ListItem>
+                <ListItem>Overweight permits</ListItem>
+                <ListItem>Superload permits</ListItem>
+              </List>
             </Col>
           </Row>
-          {/* <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Empty />
-              <Language>{t("Address")}</Language>
-              <Para>Rancho Santa Margarita</Para>
-              <Para>2131 Elk Street</Para>
-              <Para>California</Para>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Company")}</Title>
-              <Large left="true" to="/">
-                {t("About")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Blog")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Press")}
-              </Large>
-              <Large left="true" to="/">
-                {t("Careers & Culture")}
-              </Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Label htmlFor="select-lang">{t("Language")}</Label>
-              <LanguageSwitchContainer>
-                <LanguageSwitch onClick={() => handleChange("en")}>
-                  <SvgIcon
-                    src="united-states.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-                <LanguageSwitch onClick={() => handleChange("es")}>
-                  <SvgIcon
-                    src="spain.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-              </LanguageSwitchContainer>
-            </Col>
-          </Row> */}
+        
         </Container>
       </FooterSection>
       <Extra>
