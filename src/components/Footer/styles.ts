@@ -180,7 +180,7 @@ export const gray5 = "#e0dddd";
 export const primary1 = "#6ca583";
 export const accent1 = "#9b8dab";
 
-const List = styled.ul`
+export const List = styled.ul`
   list-style: none;
   padding: 0px 20px;
   background-color: #fff;
@@ -190,9 +190,10 @@ const List = styled.ul`
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
 `;
 
-const ListItem = styled.li`
+export const ListItem = styled.li`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 10px;
   padding: 10px 0px;
   border-top: 1px solid ${gray5};
   :first-of-type {
@@ -200,8 +201,14 @@ const ListItem = styled.li`
   }
 `;
 
-const Title2 = styled.span`
+export const Title2 = styled.span`
   font-size: 18px;
   color: ${gray1};
   margin-bottom: 5px;
+`;
+
+export const ItemSpan= styled.span`
+  font-size: 14px;
+  color: ${gray1};
+  
 `;
