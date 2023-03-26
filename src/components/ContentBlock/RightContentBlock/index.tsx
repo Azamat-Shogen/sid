@@ -27,7 +27,6 @@ const RightBlock = ({
   };
 
 
-   console.log('button is: ', button)
   return (
     <RightBlockContainer>
       <Fade direction="right">

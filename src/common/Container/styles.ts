@@ -19,7 +19,7 @@ export const StyledContainer = styled("div")<any>`
     padding: 0 18px;
   }
 
-  @media only screen and (max-width: 414px) {
+  @media only screen and (max-width: 814px) {
     max-width: 100%;
     padding: 0 18px;
   }
