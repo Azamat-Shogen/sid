@@ -2,7 +2,7 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { SvgIcon } from "../../../common/SvgIcon";
 import { ContentBlockProps } from "../types";
-import { Button } from "../../../common/Button";
+import { LinkButton } from "../../../common/LinkButton";
 import { Fade } from "react-awesome-reveal";
 import { useState, useEffect } from "react";
 import {
@@ -14,8 +14,7 @@ import {
   MinPara,
 } from "./styles";
 
-
-
+type form = string | any
 
 const LeftContentBlock = ({
   icon,
@@ -28,8 +27,17 @@ const LeftContentBlock = ({
 }: ContentBlockProps) => {
 
 
-  //TODO: ADD APPLICATION FORM HERE
+  
+  const [applicationForm, setApplicationForm] = useState<form>({});
 
+  useEffect(() => {
+    fetch("/applicationForm.json")
+    .then(res => res.json())
+    .then(data => {
+      setApplicationForm(data)
+    })
+    .catch(err => console.log(err))
+  }, [])
 
 
   return (
@@ -43,11 +51,12 @@ const LeftContentBlock = ({
             <ContentWrapper>
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
-              {button && (
-                <Button name="submit" onClick={() => {}}>
-                  {t(button)}
-                </Button>
-              )}
+              
+               {button && applicationForm?.hasOwnProperty("application-link") ? 
+               <LinkButton name="link" href={applicationForm['application-link']} target="_blank">
+                {t(button)}
+               </LinkButton>
+               : <></>}
               <ServiceWrapper>
                 <Row justify="space-between">
                   {typeof section === "object" &&

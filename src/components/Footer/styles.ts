@@ -181,24 +181,28 @@ export const primary1 = "#6ca583";
 export const accent1 = "#9b8dab";
 
 export const List = styled.ul`
-  list-style: none;
+  list-style: inside;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  
   padding: 0px 20px;
   background-color: #fff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   border-top: 3px solid ${accent1};
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.16);
+
 `;
 
 export const ListItem = styled.li`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  list-style-type: disc;
   padding: 10px 0px;
-  border-top: 1px solid ${gray5};
+  // border-top: 1px solid ${gray5};
   :first-of-type {
     border-top: none;
-  }
+  };
+
 `;
 
 export const Title2 = styled.span`
