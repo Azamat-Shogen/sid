@@ -1,11 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { notification } from "antd";
-import axios from "axios";
+// import axios from "axios";
+
+
+type FormRefType = {
+  current: any
+}
 
 export const useForm = (validate: any) => {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [shouldSubmit, setShouldSubmit] = useState(false);
+
+  const formRef:FormRefType = useRef();
 
   const openNotificationWithIcon = () => {
     notification["success"]({
@@ -14,19 +22,37 @@ export const useForm = (validate: any) => {
     });
   };
 
+
+
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     setErrors(validate(values));
     // Your url for API
-    const url = "";
+    // const url = "";
+    
     if (Object.keys(values).length === 3) {
-      axios
-        .post(url, {
-          ...values,
-        })
-        .then(() => {
+      console.log('current is: ', formRef)
+      emailjs.sendForm('service_ur2ymz9', 'template_z85ozad', formRef.current, 'TmidqJ90X0ixaX5tD')
+      .then((result) => {
+        console.log('current is: ', formRef)
+          console.log(result.text);
           setShouldSubmit(true);
-        });
+      }, (error) => {
+          console.log(error.text);
+      });
+
+      // axios
+      //   .post(url, {
+      //     ...values,
+      //   })
+      //   .then(() => {
+      //     setShouldSubmit(true);
+      //   });
+    }
+
+
+    else{
+      console.log(errors === true)
     }
   };
 
@@ -49,6 +75,7 @@ export const useForm = (validate: any) => {
   return {
     handleChange,
     handleSubmit,
+    formRef,
     values,
     errors,
   };
