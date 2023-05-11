@@ -12,10 +12,12 @@ import { ContactContainer, FormGroup, Span, ButtonContainer } from "./styles";
 import { SvgIcon } from "../../common/SvgIcon";
 
 
+
 const Contact = ({ title, content, id, t, icon }: ContactProps) => {
-  const { values, errors, handleChange, handleSubmit } = useForm(
+  const { values, errors, handleChange, handleSubmit, formRef } = useForm(
     validate
   ) as any;
+
 
   const ValidationType = ({ type }: ValidationTypeProps) => {
     const ErrorMessage = errors[type];
@@ -26,10 +28,11 @@ const Contact = ({ title, content, id, t, icon }: ContactProps) => {
     );
   };
 
+
+
   return (
     <ContactContainer id={id}>
       <Row justify="space-between" align="middle">
-
         <Col lg={12} md={11} sm={24} xs={24}>
           <Slide direction="left">
             <Block title={title} content={content} />
@@ -37,8 +40,8 @@ const Contact = ({ title, content, id, t, icon }: ContactProps) => {
           </Slide>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>
-          <Slide direction="right">
-            <FormGroup autoComplete="off" onSubmit={handleSubmit}>
+          {/* <Slide direction="right"> */}
+            <FormGroup ref={formRef}  autoComplete="off" onSubmit={handleSubmit}>
               <Col span={24}>
                 <Input
                   type="text"
@@ -72,7 +75,7 @@ const Contact = ({ title, content, id, t, icon }: ContactProps) => {
                 <Button name="submit">{t("Submit")}</Button>
               </ButtonContainer>
             </FormGroup>
-          </Slide>
+          {/* </Slide> */}
         </Col>
       </Row>
     </ContactContainer>
